@@ -118,6 +118,11 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                     to:channelID,
                     message:"https://cdn.discordapp.com/attachments/392736493732495361/492048815482863616/unknown.png"
                 }); break;
+            case 'rook':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/492045652797161498/unknown.png"
+                }); break;
 
 
 
