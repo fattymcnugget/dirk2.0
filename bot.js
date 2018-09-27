@@ -109,10 +109,16 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                 bot.sendMessage({
                     to:channelID,
                     message:"https://www.manettas.com.au/mwp/wp-content/uploads/2016/08/Eastern-Rock-Lobster-Cooked-Sydney-Fresh-Seafood-Manettas-Seafood-Market.jpg",
-                    file:true
 
 
-                })
+
+                }); break;
+            case 'protec':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/492048815482863616/unknown.png"
+                }); break;
+
 
 
 
