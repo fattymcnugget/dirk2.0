@@ -31,7 +31,7 @@ bot.on('message', function (user, userID, channelID, message, channel) {
             var yeet="het is munt";
         }
         args = args.splice(1);
-        switch(cmd) {
+        switch(cmd.toLowerCase()) {
             // !ping
             case 'hitler':
                 bot.sendMessage({
@@ -122,6 +122,11 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                 bot.sendMessage({
                     to:channelID,
                     message:"https://cdn.discordapp.com/attachments/392736493732495361/492045652797161498/unknown.png"
+                }); break;
+            case 'gangshit':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/494972846368489472/2015-11-03_12.03.10.jpg"
                 }); break;
 
 
