@@ -1,7 +1,10 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var beemovie = require('./tts/beemovie.js');
+var abdel = require('./tts/abdel.js');
 // Configure logger settings
+var ttsTimeout;
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
     colorize: true
@@ -23,7 +26,7 @@ bot.on('message', function (user, userID, channelID, message, channel) {
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
-        var timo=  "https://www.manettas.com.au/mwp/wp-content/uploads/2016/08/Eastern-Rock-Lobster-Cooked-Sydney-Fresh-Seafood-Manettas-Seafood-Market.jpg";
+        var timo = "https://www.manettas.com.au/mwp/wp-content/uploads/2016/08/Eastern-Rock-Lobster-Cooked-Sydney-Fresh-Seafood-Manettas-Seafood-Market.jpg";
         var i=Math.floor(Math.random() * 2);
         if (i===1){
             var yeet= "het is kop";
@@ -128,9 +131,15 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                     to:channelID,
                     message:"https://cdn.discordapp.com/attachments/392736493732495361/494972846368489472/2015-11-03_12.03.10.jpg"
                 }); break;
-
-
-
+            case 'beemovie':
+                tts(beemovie.beemovieText.split(' '), channelID, 0, bot);
+                break;
+            case 'abdel':
+                tts(abdel.abdelText.split(' '), channelID, 0, bot);
+                break;
+            case 'stop':
+                clearTimeout(ttsTimeout);
+                break;
 
 
 
@@ -138,4 +147,17 @@ bot.on('message', function (user, userID, channelID, message, channel) {
         }
     }
 });
+
+function tts(tekstArray, channelID, startNumber, bot) {
+    bot.sendMessage({
+        to:channelID,
+        message:tekstArray.splice(startNumber, 30).join(' '),
+        tts: true
+    });
+    if (tekstArray.length === 0) {
+        return;
+    } else {
+        ttsTimeout = setTimeout(function () { tts(tekstArray, channelID, startNumber, bot)},5000);
+    }
+};
 
