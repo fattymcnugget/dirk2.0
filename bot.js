@@ -3,6 +3,7 @@ var logger = require('winston');
 var auth = require('./auth.json');
 var beemovie = require('./tts/beemovie.js');
 var abdel = require('./tts/abdel.js');
+var allstar = require('./tts/allstar');
 // Configure logger settings
 var ttsTimeout;
 logger.remove(logger.transports.Console);
@@ -131,14 +132,41 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                     to:channelID,
                     message:"https://cdn.discordapp.com/attachments/392736493732495361/494972846368489472/2015-11-03_12.03.10.jpg"
                 }); break;
+            case 'boudi':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/494973067517362196/IMG_1295.JPG"
+                }); break;
+                case 'ruski':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/494973603377315840/IMG_1873.JPG"
+                }); break;
+                case 'ollie':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/494973898895392774/IMG_2068.JPG"
+                }); break;
+                case 'thomas':
+                bot.sendMessage({
+                    to:channelID,
+                    message:"https://cdn.discordapp.com/attachments/392736493732495361/494975003209760768/IMG_2932.JPG"
+                }); break;
             case 'beemovie':
                 tts(beemovie.beemovieText.split(' '), channelID, 0, bot);
                 break;
             case 'abdel':
                 tts(abdel.abdelText.split(' '), channelID, 0, bot);
                 break;
+            case 'allstar':
+                tts(allstar.allstarText.split(' '),channelID,0,bot);
+                break;
             case 'stop':
                 clearTimeout(ttsTimeout);
+                bot.sendMessage({
+                    to:channelID,
+                    message: "de tts is gestopt"
+                });
                 break;
 
 
@@ -154,9 +182,7 @@ function tts(tekstArray, channelID, startNumber, bot) {
         message:tekstArray.splice(startNumber, 30).join(' '),
         tts: true
     });
-    if (tekstArray.length === 0) {
-        return;
-    } else {
+    if (tekstArray.length > 0) {
         ttsTimeout = setTimeout(function () { tts(tekstArray, channelID, startNumber, bot)},5000);
     }
 };
