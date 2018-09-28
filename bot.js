@@ -3,7 +3,8 @@ var logger = require('winston');
 var auth = require('./auth.json');
 var beemovie = require('./tts/beemovie.js');
 var abdel = require('./tts/abdel.js');
-var allstar = require('./tts/allstar');
+var allstar = require('./tts/allstar.js');
+var guccigang = require('./tts/guccigang.js');
 // Configure logger settings
 var ttsTimeout;
 logger.remove(logger.transports.Console);
@@ -178,6 +179,10 @@ bot.on('message', function (user, userID, channelID, message, channel) {
             case 'allstar':
                 tts(allstar.allstarText.split(' '), channelID, 0, bot);
                 break;
+                case 'guccigang':
+                tts(guccigang.guccigangText.split(' '), channelID, 0, bot);
+                break;
+
             case 'stop':
                 clearTimeout(ttsTimeout);
                 bot.sendMessage({
