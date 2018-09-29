@@ -179,6 +179,7 @@ bot.on('message', function (user, userID, channelID, message, channel) {
             case 'allstar':
                 tts(allstar.allstarText.split(' '), channelID, 0, bot);
                 break;
+
                 case 'guccigang':
                 tts(guccigang.guccigangText.split(' '), channelID, 0, bot);
                 break;
