@@ -5,6 +5,9 @@ var beemovie = require('./tts/beemovie.js');
 var abdel = require('./tts/abdel.js');
 var allstar = require('./tts/allstar.js');
 var guccigang = require('./tts/guccigang.js');
+var oceanMan = require('./tts/oceanMan');
+
+
 // Configure logger settings
 var ttsTimeout;
 logger.remove(logger.transports.Console);
@@ -169,6 +172,26 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                     message: "https://cdn.discordapp.com/attachments/392736493732495361/494975003209760768/IMG_2932.JPG"
                 });
                 break;
+            case 'test':
+                bot.sendMessage({to: channelID,embed: {
+                        color: 15158332,
+                        description: "A very simple Embed!",
+                        fields: [{
+                            name: "Memes",
+                            value: "Thomas, Ollie, Ruski, Boudi, Gangshit, Rook, Protec, Timo, Wollah, Marnickgang, Yeet, Walid, Mlady, Lobster, Olle, Lobsterboy, Kyl, Lmao, Sieg, Hitler"
+                        },
+                            {
+                                name: "Masked links",
+                                value: "You can put [masked links](http://google.com) inside of rich embeds."
+                            },
+                        ],
+                        timestamp: new Date(),
+                        footer: {
+                            icon_url: userID.avatarURL,
+                            text: "© Dirk Bot"
+                        }
+                    }});
+                break;
             case 'beemovie':
                 tts(beemovie.beemovieText.split(' '), channelID, 0, bot);
 
@@ -179,9 +202,13 @@ bot.on('message', function (user, userID, channelID, message, channel) {
             case 'allstar':
                 tts(allstar.allstarText.split(' '), channelID, 0, bot);
                 break;
-                case 'guccigang':
+            case 'guccigang':
                 tts(guccigang.guccigangText.split(' '), channelID, 0, bot);
                 break;
+            case 'oceanman':
+                tts(oceanMan.oceanMAnText.split(' '), channelID, 0, bot);
+                break;
+
 
             case 'stop':
                 clearTimeout(ttsTimeout);
