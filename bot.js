@@ -172,7 +172,7 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                     message: "https://cdn.discordapp.com/attachments/392736493732495361/494975003209760768/IMG_2932.JPG"
                 });
                 break;
-            case 'test':
+            case 'help':
                 bot.sendMessage({to: channelID,embed: {
                         color: 15158332,
                         description: "A very simple Embed!",
