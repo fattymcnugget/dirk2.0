@@ -178,11 +178,11 @@ bot.on('message', function (user, userID, channelID, message, channel) {
                         description: "A very simple Embed!",
                         fields: [{
                             name: "Memes",
-                            value: "Thomas, Ollie, Ruski, Boudi, Gangshit, Rook, Protec, Timo, Wollah, Marnickgang, Yeet, Walid, Mlady, Lobster, Olle, Lobsterboy, Kyl, Lmao, Sieg, Hitler"
+                            value: "Thomas, Ollie, Ruski, Boudi, Gangshit, Rook, Protec, Timo, Wollah, Walid, Mlady, Lobster, Olle, Lobsterboy, Kyl, Lmao, Hitler"
                         },
                             {
-                                name: "Masked links",
-                                value: "You can put [masked links](http://google.com) inside of rich embeds."
+                                name: "TTS",
+                                value: "Marnickgang,Yeet,Sieg,abdel,allstar,beemovie,guccigang,oceanman"
                             },
                         ],
                         timestamp: new Date(),
